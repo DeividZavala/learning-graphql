@@ -47,6 +47,7 @@ export default withAuth(
     },
     session: withItemData(statelessSessions(sessionConfig), {
       User: `id name email role`,
+      Product: `id name description`,
     }),
   })
 );
