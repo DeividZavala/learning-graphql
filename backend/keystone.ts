@@ -8,6 +8,7 @@ import {
   withItemData,
   statelessSessions,
 } from "@keystone-next/keystone/session";
+import { insertSeedData } from "./seed-data";
 
 const databaseURL =
   process.env.DATABASE_URL || "mongodb://localhost:27017/sick-fits-keystone";
@@ -38,6 +39,12 @@ export default withAuth(
     db: {
       adapter: "mongoose",
       url: databaseURL,
+      onConnect: async (keystone) => {
+        console.log("Connected to the database!");
+        if (process.argv.includes("--seed-data")) {
+          await insertSeedData(keystone);
+        }
+      },
     },
     lists: createSchema({
       User,
