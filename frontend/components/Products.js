@@ -3,7 +3,7 @@ import qgl from "graphql-tag";
 import styled from "styled-components";
 import Product from "./Product";
 
-const ALL_PRODUCTS_QUERY = qgl`
+export const ALL_PRODUCTS_QUERY = qgl`
     query ALL_PRODUCTS_QUERY {
         allProducts {
             id
