@@ -1,7 +1,5 @@
 import Link from "next/link";
-import Styled from "styled-components";
-
-const NavStyles = Styled.nav``;
+import NavStyles from "./styles/NavStyles";
 
 export default function Nav() {
   return (
